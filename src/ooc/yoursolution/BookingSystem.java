@@ -30,13 +30,16 @@ public class BookingSystem implements BookingSystemInterface {
         
         
         RentACarInterface car = new RentACar();
-        //ArrayList<String> car = new ArrayList<>();
+      
         
         while(content != null){
-            //System.out.println(title);
-            car.getName();
+            System.out.println(content);
+            
+            
+                    
             content = in.readLine();
-        } 
+        }
+        
         return car;
     }
     
