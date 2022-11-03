@@ -5,10 +5,39 @@
  */
 package ooc.yoursolution;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  * @author 35386
  */
-public class BookingSystem {
+public class BookingSystem implements BookingSystemInterface {
+
+     /**
+     * This method reads in from the given bufferedReader object. This should be 
+     * opening the text file with the data about number of cars and their 
+     * makes. You may assume that the structure of this file is always the same. 
+     * 
+     * @param in instance of the buffered reader class that has open the file
+     * @return instance of the Rent-a-car class.
+     * @throws IOException 
+     */
+    @Override
+    public RentACarInterface setupRentACar(BufferedReader in) throws IOException {
+        String content = in.readLine();
+        
+        
+        RentACarInterface car = new RentACar();
+        //ArrayList<String> car = new ArrayList<>();
+        
+        while(content != null){
+            //System.out.println(title);
+            car.getName();
+            content = in.readLine();
+        } 
+        return car;
+    }
     
 }
