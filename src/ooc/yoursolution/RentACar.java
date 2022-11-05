@@ -17,7 +17,7 @@ import ooc.enums.Month;
 public class RentACar implements RentACarInterface {
     
     private String name;
-    public int numberOfCars;
+  
     
     ArrayList<Car> car = new ArrayList<>();
 
@@ -126,7 +126,7 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public int getNumberOfCars() {
-        return this.numberOfCars;
+        
     }
     
 }

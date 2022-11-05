@@ -22,7 +22,15 @@ import java.io.IOException;
 // INCLUDE HERE THE FULL NAME AND STUDENT NUMBER OF BOTH TEAM MEMBERS 
 // AS A COMMENT!!!!
 
-// GHEORGHITA RATA Student Number mda21563 
+/*
+    Wellington Diego Mariano 2021330
+    Gheorghita Rata Mda 21563
+    
+    https://github.com/RGeorge482/RentACar
+    https://github.com/RGeorge482/RentACar/settings/access
+
+*/  
+
 
 public class Driver {
 

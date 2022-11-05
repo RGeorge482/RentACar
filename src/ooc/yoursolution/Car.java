@@ -19,15 +19,11 @@ public class Car implements CarInterface {
     private Make make;
     private double rate;
     private int id;
-    private int num;
+    private int carQuantity;
+     private Map<Month, boolean[]> availability;//MAP HAS KEY MONTH AND VALUE BOOLEAN
+    
     
     Map<Month, boolean[]> calendar;
-   
-    public Car (Make make, double rate, int num) {
-        this.make = make;
-        this.rate = rate;
-        this.num = num;
-    }
     
      /**
      * This method is in charge of creating the calendar of availability 
@@ -39,9 +35,24 @@ public class Car implements CarInterface {
      */
     @Override
     public Map<Month, boolean[]> createAvailability() {
-     
-    
+        this.availability = new HashMap<>();// instantiating a hashmap
+
+        for (Month month : Month.values()) {//FOR EACH USING MONTH AS A TYPE AND VALUES OF MONTH AS PAR
+            boolean[] days = new boolean[month.getNumberOfDays()];//DAYS ARE AN ARRAY O BOOLEANS WITH NUMBER OF DAYS PARAMETER
+
+            int index = 0;
+
+            while (index < days.length) {
+                days = true;
+                //ATTEMPTING TO ASSIGNE TRUE TO ALL DAYS BOOLEAN VALUES
+            }
+            
+        }
+        return this.availability;
     }
+    
+    
+    
 
     /**
      * Getter method for the make of this car.
@@ -90,7 +101,7 @@ public class Car implements CarInterface {
      */
     @Override
     public Map<Month, boolean[]> getAvailability() {
-        return this.calendar;
+        return this.availability;
     }
 
     /**
@@ -125,7 +136,7 @@ public class Car implements CarInterface {
      */
     @Override
     public boolean isAvailable(Month month, int day) {
-        //using the calendar loop thruogh that callendar with a if calendar.get [day-1] return false esle true
+        return this.availability.get(month) && day; //ATTEMPTING OF RETURNING MONTH AND DAY VALUE
     }
 
      /**
@@ -139,8 +150,8 @@ public class Car implements CarInterface {
      */
     @Override
     public boolean book(Month month, int day) {
-        
-                         
+         int a;
+         return true;
     }
     
 }
