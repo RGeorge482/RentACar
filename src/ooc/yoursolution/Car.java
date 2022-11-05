@@ -20,6 +20,7 @@ public class Car implements CarInterface {
     private double rate;
     private int id;
     private int carQuantity;
+    private int count; // no of cars
      private Map<Month, boolean[]> availability;//MAP HAS KEY MONTH AND VALUE BOOLEAN
     
     
@@ -43,7 +44,7 @@ public class Car implements CarInterface {
             int index = 0;
 
             while (index < days.length) {
-                days = true;
+                this.availability.put(month, days);
                 //ATTEMPTING TO ASSIGNE TRUE TO ALL DAYS BOOLEAN VALUES
             }
             
@@ -93,6 +94,11 @@ public class Car implements CarInterface {
     public void setRate(double rate) {
         this.rate = rate;
     }
+    
+      // helper method to get total number of cars
+  public int getCount() {
+    return this.count;
+  }
 
      /**
      * Getter method for the availability calendar of this car.
@@ -136,7 +142,7 @@ public class Car implements CarInterface {
      */
     @Override
     public boolean isAvailable(Month month, int day) {
-        return this.availability.get(month) && day; //ATTEMPTING OF RETURNING MONTH AND DAY VALUE
+        return this.availability.get(month) && day; //ATTEMPTING OF RETURNING MONTH AND DAY VALUE  
     }
 
      /**

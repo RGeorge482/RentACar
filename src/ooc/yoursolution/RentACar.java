@@ -7,6 +7,7 @@ package ooc.yoursolution;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import ooc.enums.Make;
 import ooc.enums.Month;
 
@@ -19,7 +20,8 @@ public class RentACar implements RentACarInterface {
     private String name;
   
     
-    ArrayList<Car> car = new ArrayList<>();
+   
+    private List<CarInterface> cars = new ArrayList<>();
 
     /**
      * Return the full list of cars.
@@ -28,12 +30,7 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public List<CarInterface> getCars() {
-        ArrayList<CarInterface> carList = new ArrayList<>();
-        
-         for(Car c : car) {
-            carList.add(c);
-        }
-         return carList;
+         return this.cars;
     }
 
      /**
@@ -43,10 +40,7 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public void setCars(List<CarInterface> cars) {
-         ArrayList<CarInterface> myCarList = new ArrayList<>();
-         for(CarInterface c : cars){            
-             myCarList.addAll(cars);
-         }
+        this.cars = cars;
     }
 
     
@@ -86,7 +80,24 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent) {
-        
+          CarInterface car = new Car();//INSTANTIATION OF CAR SO THAT CARINTERFACE METHODS CAN BE USED HERE
+
+        for (CarInterface carIndex : this.cars) {//FOR EACH LOOP OF CARINTERFACE TYPE UNITL LENGHT OF CARS ARRAYLIST
+            if (carIndex.getMake() == make) { // IF ITERATION IS EQUAL TO THE MAKE OF PARAMETER BREAK LOOP
+                car = carIndex;//ADD TO OBJECT CAR AND BREAK LOOP
+                break;
+            }
+        }
+
+        boolean[] daysOfStay = car.getAvailability().get(month);
+        //TAKING CAR AVAILABILITY AND THOWING INSIDE DAYSOFSTAY VALUE OF RETURN IS BOOLEAN
+
+        for (int i = day; i < lengthOfRent; i++) {//IF NOT DAYS ENOUGH AVAILABLE RETURN FALSE
+            if (daysOfStay[i] == false) {
+                return false;
+            }
+        }
+        return true; // ELSE TRUE
     }
 
        /**
@@ -101,7 +112,16 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public int getCarAvailable(Month month, int day, Make make, int lengthOfRent) {
-        
+         CarInterface car = new Car(); //INSTANTIATION OF CAR SO THAT CARINTERFACE METHODS CAN BE USED HERE
+
+        for (CarInterface carIndex : this.cars) {
+            if (carIndex.getMake() == make) {//ACCESSING METHOD GET MAKE FROM CAR INTERFACE
+                car = carIndex;
+                break;
+            }
+        }
+
+        return car.getId();
     }
 
        /**
@@ -126,7 +146,13 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public int getNumberOfCars() {
-        
+          int total = 0;
+
+        // iterate each item in the car list and update the count
+        for (CarInterface car : this.cars) {
+            total += ((Car) car).getCount();
+        }
+        return total;
     }
     
 }
