@@ -26,8 +26,9 @@ import java.io.IOException;
     Wellington Diego Mariano 2021330
     Gheorghita Rata Mda 21563
     
-    https://github.com/RGeorge482/RentACar
-    https://github.com/RGeorge482/RentACar/settings/access
+    https://github.com/RGeorge482/RentACar  // link to our GitHub project
+    https://github.com/RGeorge482/RentACar/settings/access  // collaboration GitHub project team
+    
 
 */  
 
