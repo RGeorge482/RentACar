@@ -15,7 +15,11 @@ import ooc.enums.Month;
  * @author 35386
  */
 public class RentACar implements RentACarInterface {
-    ArrayList<Make> makes = new ArrayList<>();
+    
+    private String name;
+    public int numberOfCars;
+    
+    ArrayList<Car> car = new ArrayList<>();
 
     /**
      * Return the full list of cars.
@@ -24,47 +28,105 @@ public class RentACar implements RentACarInterface {
      */
     @Override
     public List<CarInterface> getCars() {
-        ArrayList<CarInterface> makeList = new ArrayList<>();
+        ArrayList<CarInterface> carList = new ArrayList<>();
         
-         for(Make car : makes) {
-            makeList.add(car.);
+         for(Car c : car) {
+            carList.add(c);
         }
-         return makeList;
+         return carList;
     }
 
+     /**
+     * Helper method to set all the cars with a list if we so wished
+     *
+     * @param cars	List of cars
+     */
     @Override
     public void setCars(List<CarInterface> cars) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         ArrayList<CarInterface> myCarList = new ArrayList<>();
+         for(CarInterface c : cars){            
+             myCarList.addAll(cars);
+         }
     }
 
+    
+    /**
+     * Return the name of the Rent-a-car
+     *
+     * @return
+     */
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.name;
     }
 
+    /**
+     * Set the name of the rent-a-car.
+     *
+     * @param name
+     */
     @Override
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.name = name;
     }
 
+    
+     /**
+     * Check through all cars in this company and see if there is continuous
+     * availability of any specific car. It is not enough to just have
+     * any car available for the length of stay, we need it to be in one
+     * specific make of car.
+     *
+     * @param month	Month of proposed rent
+     * @param day	Day of start of proposed rent
+     * @param make	Make, what sort of car for the proposed rent
+     * @param lengthOfRent	how long is the proposed rent for
+     * 
+     * @return	true or false is there availability for the proposed rent
+     */
     @Override
     public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
+       /**
+     * Assuming there is availability, get the id of a car that fits that
+     * availability
+     *
+     * @param month	Month of proposed rent
+     * @param day	Day of start of proposed rent
+     * @param make	Make, what sort of car for the proposed rent
+     * @param lengthOfRent	how long is the proposed rent for
+     * @return	the id of a car that fits the bill
+     */
     @Override
     public int getCarAvailable(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
+       /**
+     * Book a car for the proposed rental period. It should be one car for the full
+     * time. THERE IS NO NEED TO CONSIDER RENTALS THAT ROLL OVER TWO MONTHS
+     *
+     * @param month	Month of proposed rent
+     * @param day	Day of start of proposed rent
+     * @param make	Make, what sort of car for the proposed rent
+     * @param lengthOfRent	how long is the proposed rent for
+     * @return	true or false has the room been booked
+     */
     @Override
     public boolean bookCar(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
+    /**
+     * How many cars are in the rent-a-car
+     *
+     * @return number of cars
+     */
     @Override
     public int getNumberOfCars() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.numberOfCars;
     }
     
 }

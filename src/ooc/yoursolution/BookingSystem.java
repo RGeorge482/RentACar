@@ -27,16 +27,19 @@ public class BookingSystem implements BookingSystemInterface {
     @Override
     public RentACarInterface setupRentACar(BufferedReader in) throws IOException {
         String content = in.readLine();
-        
-        
+            
         RentACarInterface car = new RentACar();
       
-        
         while(content != null){
-            System.out.println(content);
+            //System.out.println(content);  
             
+            //Car myCar = new Car();
+            //car.getCars();
             
-                    
+            RentACar myCar = new RentACar();
+            //myCar.getCars();
+            myCar.setCars();
+            
             content = in.readLine();
         }
         
